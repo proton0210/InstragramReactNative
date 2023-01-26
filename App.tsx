@@ -1,25 +1,39 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import colors from "./src/theme/colors";
 import fonts from "./src/theme/fonts";
-import Ionicons from "@expo/vector-icons/Ionicons";
-
+import { AntDesign } from "@expo/vector-icons";
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={{ color: colors.primary, fontSize: fonts.size.lg }}>
-        Hello from Expo!
-      </Text>
-      <StatusBar style="auto" />
+    <View style={styles.post}>
+      {/* Header */}
+      <View style={styles.header}>
+        <Image
+          source={{
+            uri: "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/1.jpg",
+          }}
+          style={styles.userAvatar}
+        />
+        
+      </View>
+      {/* Content */}
+      <Image
+        source={{
+          uri: "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/1.jpg",
+        }}
+        style={styles.image}
+      />
+      {/* Footer */}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+  post: {
+    marginTop: 80,
+  },
+  image: {
+    width: "100%",
+    aspectRatio: 1,
   },
 });
